@@ -72,6 +72,19 @@ export const REPOSITORY_PROFILES: readonly RepositoryProfile[] = [
       pull_request: ["implemented_on_main"],
     },
   },
+  {
+    targetRepo: "joseamijares/EZEO_JAMAK_SEO",
+    slug: "joseamijares-ezeo-jamak-seo",
+    displayName: "Ezeo",
+    checkoutDir: "ezeo",
+    docsUrl: "https://ezeo.ai",
+    promptNote:
+      "Use the Ezeo source tree, current main branch, Supabase functions, Vercel/CI checks, and repository docs. Review production-health, GEO/LLM, SEO, Shopify, and Supabase changes conservatively. Do not auto-close issues; for PRs only propose implemented-on-main closeout when current main clearly already contains the change.",
+    applyCloseRules: {
+      issue: [],
+      pull_request: ["implemented_on_main"],
+    },
+  },
 ];
 
 export function repositoryProfileFor(targetRepo: string): RepositoryProfile {
