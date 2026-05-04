@@ -616,6 +616,8 @@ export function parseCommand(body: string) {
     if (autoclose) return commandFromText("slash", `autoclose ${autoclose[1] ?? ""}`.trim());
     const review = line.match(/^\s*\/review(?:\s+(.+))?\s*$/i);
     if (review) return commandFromText("slash", review[1] ? `review ${review[1]}` : "review");
+    const status = line.match(/^\s*\/(?:status|help|explain)\s*$/i);
+    if (status) return commandFromText("slash", status[1] ?? line.replace(/^\s*\//, "").trim());
     const slash = line.match(/^\s*\/clawsweeper(?:\s+(.+))?\s*$/i);
     if (slash) {
       const command = commandFromText("slash", slash[1] ?? "status");
